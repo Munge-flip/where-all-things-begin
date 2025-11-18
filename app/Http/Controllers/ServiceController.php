@@ -27,7 +27,7 @@ class ServiceController extends Controller
                 echo "saved<br>";
                 echo "<a href=" . route('Service.view') . ">View</a>";
             } else {
-                echo "error";
+                echo "error<br>";
             }
         }
     }
@@ -45,12 +45,12 @@ class ServiceController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        $destroy = service::where("id", $id)->delete($id);
-        if ($destroy) {
-            echo "deleted<br>";
+        $delete = service::where("id", $id)->delete($id);
+        if ($delete) {
+            echo "saved<br>";
             echo "<a href=" . route('Service.view') . ">View</a>";
         } else {
-            echo "error";
+            echo "error<br>";
         }
     }
 }
