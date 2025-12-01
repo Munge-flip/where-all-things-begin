@@ -17,7 +17,7 @@ class ServiceController extends Controller
         if (isset($serviceData['id'])) {
             $update = service::where('id', $serviceData['id'])->update($serviceData);
             if ($update) {
-                echo "updated";
+                echo "updated<br>";
                 echo "<a href=" . route('service.view') . ">View</a>";
             }
         } else {
