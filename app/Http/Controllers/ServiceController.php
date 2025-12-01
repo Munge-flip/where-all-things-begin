@@ -9,7 +9,7 @@ class ServiceController extends Controller
 {
     public function create()
     {
-        return view("add");
+        return view('add');
     }
     public function store(Request $request)
     {
@@ -17,15 +17,15 @@ class ServiceController extends Controller
         if (isset($serviceData['id'])) {
             $update = service::where('id', $serviceData['id'])->update($serviceData);
             if ($update) {
-                echo "updated<br>";
-                echo "<a href=" . route('Service.view') . ">View</a>";
+                echo "updated";
+                echo "<a href=" . route('service.view') . ">View</a>";
             }
         } else {
             unset($serviceData['id']);
             $saveData = service::insert($serviceData);
             if ($saveData) {
-                echo "Saved<br>";
-                echo "<a href=" . route('Service.view') . ">View</a>";
+                echo "saved";
+                echo "<a href=" . route('service.view') . ">View</a>";
             } else {
                 echo "error";
             }
@@ -34,9 +34,9 @@ class ServiceController extends Controller
     public function view()
     {
         $serviceData = service::all();
-        return view('view', compact("serviceData"));
+        return view('view', compact('serviceData'));
     }
-    public function update(Request $request)
+    public function edit(Request $request)
     {
         $id = $request->id;
         $serviceData = service::find($id);
@@ -47,8 +47,8 @@ class ServiceController extends Controller
         $id = $request->id;
         $destroy = service::where('id', $id)->delete($id);
         if ($destroy) {
-            echo "deleted<br>";
-            echo "<a href=" . route('Service.view') . ">View</a>";
+            echo "deleted";
+            echo "<a href=" . route('service.view') . ">View</a>";
         } else {
             echo "error";
         }
