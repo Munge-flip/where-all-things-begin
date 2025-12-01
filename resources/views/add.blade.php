@@ -1,8 +1,8 @@
 <form action=" {{ route('service.store') }} " method="get">
-    <input type="hidden" value=" {{ $serviceData['id'] }} " name="id"><br>
+    <input type="hidden" value=" {{ $serviceData['id'] ?? '' }} " name="id"><br>
     <label for="">Dailies</label><br>
-    <input type="text" value=" {{ $serviceData['dailies'] }} " name="dailies"><br>
+    <input type="text" value=" {{ $serviceData['dailies'] ?? '' }} " name="dailies"><br>
     <label for="">Endgame</label><br>
-    <input type="text" value=" {{ $serviceData['endgame'] }} " name="endgame"><br>
+    <input type="text" value=" {{ $serviceData['endgame'] ?? '' }} " name="endgame"><br>
     <button>submit</button>
 </form>
