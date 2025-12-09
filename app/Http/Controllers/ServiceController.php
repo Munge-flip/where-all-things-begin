@@ -17,17 +17,17 @@ class ServiceController extends Controller
         if (isset($serviceData['id'])) {
             $update = service::where('id', $serviceData['id'])->update($serviceData);
             if ($update) {
-                echo "updated<br>";
+                echo 'updated';
                 echo "<a href=" . route('service.view') . ">View</a>";
             }
         } else {
             unset($serviceData['id']);
             $saveData = service::insert($serviceData);
             if ($saveData) {
-                echo "saved";
+                echo 'saved';
                 echo "<a href=" . route('service.view') . ">View</a>";
             } else {
-                echo "error";
+                echo 'error';
             }
         }
     }
@@ -47,10 +47,10 @@ class ServiceController extends Controller
         $id = $request->id;
         $destroy = service::where('id', $id)->delete($id);
         if ($destroy) {
-            echo "deleted";
+            echo 'deleted';
             echo "<a href=" . route('service.view') . ">View</a>";
         } else {
-            echo "error";
+            echo 'error';
         }
     }
 }
